@@ -1,28 +1,24 @@
-package com.imooc.io;
+package com.imooc.io.file;
 
 import java.io.File;
 import java.io.IOException;
 
 public class FileDemo {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// 了解构造函数的情况  查帮助
 		File file = new File("E:\\javaio\\imooc");
 		//System.out.println(file.exists());
 		if(!file.exists())
 			file.mkdir(); //file.mkdirs()
 		else
 			file.delete();
-		//是否是一个目录  如果是目录返回true,如果不是目录or目录不存在返回的是false
+		//锟角凤拷锟斤拷一锟斤拷目录  锟斤拷锟斤拷锟侥柯硷拷锟斤拷锟絫rue,锟斤拷锟斤拷锟斤拷锟侥柯紀r目录锟斤拷锟斤拷锟节凤拷锟截碉拷锟斤拷false
 		System.out.println(file.isDirectory());
-		//是否是一个文件
+		//锟角凤拷锟斤拷一锟斤拷锟侥硷拷
 		System.out.println(file.isFile());
 		
-		//File file2 = new File("e:\\javaio\\日记1.txt");
-		File file2 = new File("e:\\javaio","日记1.txt");
+		//File file2 = new File("e:\\javaio\\锟秸硷拷1.txt");
+		File file2 = new File("e:\\javaio","锟秸硷拷1.txt");
 		if(!file2.exists())
 			try {
 				file2.createNewFile();
@@ -32,8 +28,8 @@ public class FileDemo {
 			}
 		else 
 			file2.delete();
-         //常用的File对象的API
-		System.out.println(file);//file.toString()的内容
+         //锟斤拷锟矫碉拷File锟斤拷锟斤拷锟紸PI
+		System.out.println(file);//file.toString()锟斤拷锟斤拷锟斤拷
 		System.out.println(file.getAbsolutePath());
 		System.out.println(file.getName());
 		System.out.println(file2.getName());
