@@ -31,29 +31,30 @@
 3)RandomAccessFile提供基本类型的读写方法，可以将基本类型数据
    序列化到文件或者将文件内容反序列化为数据
  IO流(输入流、输出流)
- 字节流、字符流
- 1.字节流
- 1)InputStream、OutputStream
+ 
+## 字节流、字符流
+### 1.字节流
+1. InputStream、OutputStream
     InputStream抽象了应用程序读取数据的方式
     OutputStream抽象了应用程序写出数据的方式 
- 2)EOF = End   读到-1就读到结尾
- 3)输入流基本方法
+2. EOF = End   读到-1就读到结尾
+3. 输入流基本方法
    int  b = in.read();读取一个字节无符号填充到int低八位.-1是 EOF
    in.read(byte[] buf) 
    in.read(byte[] buf,int start,int size)
-4)输出流基本方法
+4. 输出流基本方法
   out.write(int b)  写出一个byte到流，b的低8位
   out.write(byte[] buf)将buf字节数组都写入到流
   out.write(byte[] buf,int start,int size)
   
- 5)FileInputStream--->具体实现了在文件上读取数据
- 6)FileOutputStream 实现了向文件中写出byte数据的方法
- 7)DataOutputStream/DataInputStream
+5. FileInputStream--->具体实现了在文件上读取数据
+6. FileOutputStream 实现了向文件中写出byte数据的方法
+7. DataOutputStream/DataInputStream
     对"流"功能的扩展，可以更加方面的读取int,long，字符等类型数据
    DataOutputStream
         writeInt()/writeDouble()/writeUTF()
 
- 8)BufferedInputStream&BufferedOutputStream
+8. BufferedInputStream&BufferedOutputStream
  这两个流类位IO提供了带缓冲区的操作，一般打开文件进行写入
  或读取操作时，都会加上缓冲，这种流模式提高了IO的性能
  从应用程序中把输入放入文件，相当于将一缸水倒入到另一个缸中:
@@ -62,13 +63,13 @@
  BufferedOutputStream--->write方法更方便，相当于一飘一瓢先放入桶中，再从桶中倒入到另一个缸中，性能提高了
    
    
- 2.字符流
- 1) 编码问题
- 2)认识文本和文本文件
+### 2.字符流
+1. 编码问题
+2. 认识文本和文本文件
  java的文本(char)是16位无符号整数，是字符的unicode编码（双字节编码)
  文件是byte byte byte ...的数据序列
 文本文件是文本(char)序列按照某种编码方案(utf-8,utf-16be,gbk)序列化为byte的存储结果
-3)字符流(Reader Writer)---->操作的是文本文本文件
+3. 字符流(Reader Writer)---->操作的是文本文本文件
 字符的处理，一次处理一个字符
 字符的底层任然是基本的字节序列
 字符流的基本实现
