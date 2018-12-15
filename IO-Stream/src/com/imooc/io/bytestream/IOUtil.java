@@ -1,5 +1,7 @@
 package com.imooc.io.bytestream;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -73,5 +75,25 @@ public class IOUtil {
 		}
 		in.close();
 		out.close();
+	}
+	/*
+	 * 进行文件拷贝，利用带缓冲的字节流
+	 */
+	public static void copyFileByBuffer(File srcFile,File destFile) throws IOException{
+		if(!srcFile.exists()){
+			throw new IllegalArgumentException("文件"+srcFile+"不存在");
+		}
+		if(!srcFile.isFile()){
+			throw new IllegalArgumentException(srcFile+"不是文件");
+		}
+		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(srcFile));
+		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(destFile));
+		int c;
+		while((c=bis.read())!=-1){
+			bos.write(c);
+			bos.flush();
+		}
+		bis.close();
+		bos.close();
 	}
 }
