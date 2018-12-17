@@ -50,7 +50,8 @@
 
 3.对象的序列化，反序列化
 * 对象序列化，就是将Object转换成byte序列，反之叫对象的反序列化
-* 序列化流(ObjectOutputStream),是过滤流----writeObject 反序列化流(ObjectInputStream)---readObject
+* 序列化流(ObjectOutputStream),是过滤流----writeObject方法
+反序列化流(ObjectInputStream)---readObject方法
 * 序列化接口(Serializable) 对象必须实现序列化接口 ，才能进行序列化，否则将出现异常 这个接口，没有任何方法，只是一个标准
 
 4.transient关键字 
