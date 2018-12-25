@@ -4,8 +4,8 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
- * Created by kerr.
- *
+ * Created by lifei.
+ * <p>
  * Listing 1.2 ChannelHandler triggered by a callback
  */
 public class ConnectHandler extends ChannelInboundHandlerAdapter {
