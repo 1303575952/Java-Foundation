@@ -1,5 +1,5 @@
 /**
- * Created by kerr.
+ * Created by lifei.
  *
  * Listing 2.1 EchoServerHandler {@link nia.chapter2.echoserver.EchoServerHandler}
  *

@@ -1,5 +1,5 @@
 /**
- * Created by kerr.
+ * Created by lifei.
  *
  * Listing 2.3 ChannelHandler for the client {@link nia.chapter2.echoclient.EchoClientHandler}
  *
