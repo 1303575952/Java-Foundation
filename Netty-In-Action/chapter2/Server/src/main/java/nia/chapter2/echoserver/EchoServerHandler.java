@@ -8,8 +8,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
 
-import java.nio.charset.Charset;
-
 /**
  * Listing 2.1 EchoServerHandler
  *
