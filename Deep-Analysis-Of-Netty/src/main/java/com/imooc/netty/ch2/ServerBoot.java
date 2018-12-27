@@ -1,7 +1,7 @@
 package com.imooc.netty.ch2;
 
 /**
- * @author 闪电侠
+ * @author felix
  */
 public class ServerBoot {
 
