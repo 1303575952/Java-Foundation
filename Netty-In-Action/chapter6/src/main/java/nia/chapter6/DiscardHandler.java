@@ -8,7 +8,7 @@ import io.netty.util.ReferenceCountUtil;
 /**
  * Listing 6.1 Releasing message resources
  *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
+ * @author lifei
  */
 @Sharable
 public class DiscardHandler extends ChannelInboundHandlerAdapter {

@@ -9,14 +9,12 @@ import io.netty.util.ReferenceCountUtil;
 /**
  * Listing 6.4 Discarding and releasing outbound data
  *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
+ * @author lifei
  */
 @Sharable
-public class DiscardOutboundHandler
-    extends ChannelOutboundHandlerAdapter {
+public class DiscardOutboundHandler extends ChannelOutboundHandlerAdapter {
     @Override
-    public void write(ChannelHandlerContext ctx,
-        Object msg, ChannelPromise promise) {
+    public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) {
         ReferenceCountUtil.release(msg);
         promise.setSuccess();
     }
