@@ -6,18 +6,18 @@ import java.util.List;
 /**
  * Listing 7.1 Executing tasks in an event loop
  *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
+ * @author lifei
  */
 public class EventLoopExamples {
     /**
      * Listing 7.1 Executing tasks in an event loop
-     * */
+     */
     public static void executeTaskInEventLoop() {
         boolean terminated = true;
         //...
         while (!terminated) {
             List<Runnable> readyEvents = blockUntilEventsReady();
-            for (Runnable ev: readyEvents) {
+            for (Runnable ev : readyEvents) {
                 ev.run();
             }
         }
