@@ -11,9 +11,9 @@ import io.netty.handler.ssl.SslHandler;
 import javax.net.ssl.SSLEngine;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 11.5 Using HTTPS
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class HttpsCodecInitializer extends ChannelInitializer<Channel> {
     private final SslContext context;
