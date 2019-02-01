@@ -5,9 +5,9 @@ import io.netty.channel.*;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 11.10 Decoder for the command and the handler
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class LengthBasedInitializer extends ChannelInitializer<Channel> {
     @Override
@@ -19,10 +19,10 @@ public class LengthBasedInitializer extends ChannelInitializer<Channel> {
     }
 
     public static final class FrameHandler
-        extends SimpleChannelInboundHandler<ByteBuf> {
+            extends SimpleChannelInboundHandler<ByteBuf> {
         @Override
         public void channelRead0(ChannelHandlerContext ctx,
-             ByteBuf msg) throws Exception {
+                                 ByteBuf msg) throws Exception {
             // Do something with the frame
         }
     }
