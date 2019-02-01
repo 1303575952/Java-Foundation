@@ -10,14 +10,15 @@ import java.io.File;
 import java.io.FileInputStream;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 11.12 of <i>Netty in Action</i>
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class ChunkedWriteHandlerInitializer
-    extends ChannelInitializer<Channel> {
+        extends ChannelInitializer<Channel> {
     private final File file;
     private final SslContext sslCtx;
+
     public ChunkedWriteHandlerInitializer(File file, SslContext sslCtx) {
         this.file = file;
         this.sslCtx = sslCtx;
@@ -32,14 +33,14 @@ public class ChunkedWriteHandlerInitializer
     }
 
     public final class WriteStreamHandler
-        extends ChannelInboundHandlerAdapter {
+            extends ChannelInboundHandlerAdapter {
 
         @Override
         public void channelActive(ChannelHandlerContext ctx)
-            throws Exception {
+                throws Exception {
             super.channelActive(ctx);
             ctx.writeAndFlush(
-            new ChunkedStream(new FileInputStream(file)));
+                    new ChunkedStream(new FileInputStream(file)));
         }
     }
 }
