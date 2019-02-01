@@ -5,12 +5,13 @@ import io.netty.channel.*;
 import io.netty.handler.codec.LineBasedFrameDecoder;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 11.9 Using a ChannelInitializer as a decoder installer
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class CmdHandlerInitializer extends ChannelInitializer<Channel> {
-    private static final byte SPACE = (byte)' ';
+    private static final byte SPACE = (byte) ' ';
+
     @Override
     protected void initChannel(Channel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
@@ -43,7 +44,7 @@ public class CmdHandlerInitializer extends ChannelInitializer<Channel> {
 
         @Override
         protected Object decode(ChannelHandlerContext ctx, ByteBuf buffer)
-            throws Exception {
+                throws Exception {
             ByteBuf frame = (ByteBuf) super.decode(ctx, buffer);
             if (frame == null) {
                 return null;
@@ -56,10 +57,10 @@ public class CmdHandlerInitializer extends ChannelInitializer<Channel> {
     }
 
     public static final class CmdHandler
-        extends SimpleChannelInboundHandler<Cmd> {
+            extends SimpleChannelInboundHandler<Cmd> {
         @Override
         public void channelRead0(ChannelHandlerContext ctx, Cmd msg)
-            throws Exception {
+                throws Exception {
             // Do something with the command
         }
     }
