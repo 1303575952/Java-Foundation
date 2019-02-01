@@ -7,8 +7,8 @@ import java.io.File;
 import java.io.FileInputStream;
 
 /**
- * Created by kerr.
- *
+ * @author FELIX
+ * <p>
  * Listing 11.11 Transferring file contents with FileRegion
  */
 public class FileRegionWriteHandler extends ChannelInboundHandlerAdapter {
@@ -24,15 +24,15 @@ public class FileRegionWriteHandler extends ChannelInboundHandlerAdapter {
         FileRegion region = new DefaultFileRegion(
                 in.getChannel(), 0, file.length());
         channel.writeAndFlush(region).addListener(
-            new ChannelFutureListener() {
-            @Override
-            public void operationComplete(ChannelFuture future)
-               throws Exception {
-               if (!future.isSuccess()) {
-                   Throwable cause = future.cause();
-                   // Do something
-               }
-            }
-        });
+                new ChannelFutureListener() {
+                    @Override
+                    public void operationComplete(ChannelFuture future)
+                            throws Exception {
+                        if (!future.isSuccess()) {
+                            Throwable cause = future.cause();
+                            // Do something
+                        }
+                    }
+                });
     }
 }
