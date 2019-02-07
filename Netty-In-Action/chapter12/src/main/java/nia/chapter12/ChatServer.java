@@ -14,21 +14,21 @@ import io.netty.util.concurrent.ImmediateEventExecutor;
 import java.net.InetSocketAddress;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 12.4 Bootstrapping the server
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class ChatServer {
     private final ChannelGroup channelGroup =
-        new DefaultChannelGroup(ImmediateEventExecutor.INSTANCE);
+            new DefaultChannelGroup(ImmediateEventExecutor.INSTANCE);
     private final EventLoopGroup group = new NioEventLoopGroup();
     private Channel channel;
 
     public ChannelFuture start(InetSocketAddress address) {
         ServerBootstrap bootstrap = new ServerBootstrap();
         bootstrap.group(group)
-             .channel(NioServerSocketChannel.class)
-             .childHandler(createInitializer(channelGroup));
+                .channel(NioServerSocketChannel.class)
+                .childHandler(createInitializer(channelGroup));
         ChannelFuture future = bootstrap.bind(address);
         future.syncUninterruptibly();
         channel = future.channel();
@@ -36,7 +36,7 @@ public class ChatServer {
     }
 
     protected ChannelInitializer<Channel> createInitializer(
-        ChannelGroup group) {
+            ChannelGroup group) {
         return new ChatServerInitializer(group);
     }
 
