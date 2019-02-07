@@ -10,9 +10,9 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 12.3 Initializing the ChannelPipeline
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class ChatServerInitializer extends ChannelInitializer<Channel> {
     private final ChannelGroup group;
