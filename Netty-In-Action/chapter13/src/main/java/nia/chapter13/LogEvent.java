@@ -3,9 +3,9 @@ package nia.chapter13;
 import java.net.InetSocketAddress;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 13.1 LogEvent message
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public final class LogEvent {
     public static final byte SEPARATOR = (byte) ':';
@@ -19,7 +19,7 @@ public final class LogEvent {
     }
 
     public LogEvent(InetSocketAddress source, long received,
-        String logfile, String msg) {
+                    String logfile, String msg) {
         this.source = source;
         this.logfile = logfile;
         this.msg = msg;
