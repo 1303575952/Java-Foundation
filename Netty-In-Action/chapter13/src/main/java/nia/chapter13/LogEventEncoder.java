@@ -10,9 +10,9 @@ import java.net.InetSocketAddress;
 import java.util.List;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 13.2 LogEventEncoder
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class LogEventEncoder extends MessageToMessageEncoder<LogEvent> {
     private final InetSocketAddress remoteAddress;
@@ -23,11 +23,11 @@ public class LogEventEncoder extends MessageToMessageEncoder<LogEvent> {
 
     @Override
     protected void encode(ChannelHandlerContext channelHandlerContext,
-        LogEvent logEvent, List<Object> out) throws Exception {
+                          LogEvent logEvent, List<Object> out) throws Exception {
         byte[] file = logEvent.getLogfile().getBytes(CharsetUtil.UTF_8);
         byte[] msg = logEvent.getMsg().getBytes(CharsetUtil.UTF_8);
         ByteBuf buf = channelHandlerContext.alloc()
-            .buffer(file.length + msg.length + 1);
+                .buffer(file.length + msg.length + 1);
         buf.writeBytes(file);
         buf.writeByte(LogEvent.SEPARATOR);
         buf.writeBytes(msg);
