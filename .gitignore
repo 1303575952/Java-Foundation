@@ -2,3 +2,6 @@
 /Deep-Analysis-Of-Netty/.idea/
 /Java-Concurrency-In-Practice/.idea/
 /Java-Concurrent-Programming-And-High-Concurrent-Solutions/HighConcurrency/.idea/
+/Deep-Analysis-Of-Netty/target/classes/com/imooc/netty/ch10/*.class
+/Deep-Analysis-Of-Netty/target/classes/com/imooc/netty/ch11/*.class
+*.class

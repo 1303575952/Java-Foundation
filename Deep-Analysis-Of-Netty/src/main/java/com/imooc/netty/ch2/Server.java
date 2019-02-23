@@ -4,16 +4,18 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * @author FELIX
+ */
 public class Server {
-
     private ServerSocket serverSocket;
 
     public Server(int port) {
         try {
             this.serverSocket = new ServerSocket(port);
-            System.out.println("服务端启动成功，端口:" + port);
-        } catch (IOException exception) {
-            System.out.println("服务端启动失败");
+            System.out.println("服务器启动成功，端口：" + port);
+        } catch (IOException e) {
+            System.out.println("服务器启动失败");
         }
     }
 
@@ -21,12 +23,12 @@ public class Server {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                doStart();
+                dostart();
             }
         }).start();
     }
 
-    private void doStart() {
+    private void dostart() {
         while (true) {
             try {
                 Socket client = serverSocket.accept();

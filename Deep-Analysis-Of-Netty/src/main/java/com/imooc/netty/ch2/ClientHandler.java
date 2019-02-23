@@ -18,12 +18,12 @@ public class ClientHandler {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                doStart();
+                dostart();
             }
         }).start();
     }
 
-    private void doStart() {
+    private void dostart() {
         try {
             InputStream inputStream = socket.getInputStream();
             while (true) {
@@ -31,15 +31,13 @@ public class ClientHandler {
                 int len;
                 while ((len = inputStream.read(data)) != -1) {
                     String message = new String(data, 0, len);
-                    System.out.println("客户端传来消息: " + message);
+                    System.out.println("客户端传来消息：" + message);
                     socket.getOutputStream().write(data);
                 }
-
             }
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }

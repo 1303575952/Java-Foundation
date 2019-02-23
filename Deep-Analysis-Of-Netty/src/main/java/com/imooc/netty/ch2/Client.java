@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
- * @author felix
+ * @author FELIX
  */
 public class Client {
     private static final String HOST = "127.0.0.1";
@@ -28,11 +28,8 @@ public class Client {
                     }
                     sleep();
                 }
-
-
             }
         }).start();
-
     }
 
     private static void sleep() {
