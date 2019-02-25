@@ -5,15 +5,15 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.sctp.nio.NioSctpServerChannel;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 import java.net.InetSocketAddress;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 2.2 EchoServer class
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class EchoServer {
     private final int port;
@@ -36,14 +36,13 @@ public class EchoServer {
         try {
             ServerBootstrap b = new ServerBootstrap();
             b.group(group)
-                    .channel(NioServerSocketChannel.class)
+                    .channel(NioSctpServerChannel.class)
                     .localAddress(new InetSocketAddress(port))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        public void initChannel(SocketChannel ch) throws Exception {
+                        protected void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline().addLast(serverHandler);
                         }
-
                     });
             ChannelFuture f = b.bind().sync();
             f.channel().closeFuture().sync();
