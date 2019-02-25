@@ -8,26 +8,26 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.CharsetUtil;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 2.3 ChannelHandler for the client
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 @ChannelHandler.Sharable
 public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
     @Override
+    protected void channelRead0(ChannelHandlerContext ctx, ByteBuf in) throws Exception {
+        System.out.println("Client received: " + in.toString(CharsetUtil.UTF_8));
+    }
+
+    @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush(Unpooled.copiedBuffer("Netty rocks!", CharsetUtil.UTF_8));
+        ctx.writeAndFlush(Unpooled.copiedBuffer("Netty Rocks!", CharsetUtil.UTF_8));
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
         ctx.close();
-    }
-
-    @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf in) throws Exception {
-        System.out.println("Client received:" + in.toString(CharsetUtil.UTF_8));
     }
 }
