@@ -7,32 +7,31 @@ import java.net.Socket;
 import java.nio.charset.Charset;
 
 /**
- * Listing 4.1 Blocking networking without Netty
+ * @author FELIX
  * <p>
- * lifei
+ * Listing 4.1 Blocking networking without Netty
  */
 public class PlainOioServer {
-    public void serve(int port) throws Exception {
-        final ServerSocket socket = new ServerSocket(port);
+    public void serve(int port) throws IOException {
+        final ServerSocket serverSocket = new ServerSocket(port);
         try {
             for (; ; ) {
-                final Socket clientSocket = socket.accept();
-                System.out.println("Accepted connection from " + clientSocket);
+                final Socket socket = serverSocket.accept();
+                System.out.println("Accepted connection from " + socket);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         OutputStream out;
                         try {
-                            out = clientSocket.getOutputStream();
-                            out.write("Hi\r\n".getBytes(Charset.forName("UTF-8")));
+                            out = socket.getOutputStream();
+                            out.write("Hi!\r\n".getBytes(Charset.forName("UTF-8")));
                             out.flush();
-                            out.close();
-                            clientSocket.close();
+                            socket.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         } finally {
                             try {
-                                clientSocket.close();
+                                socket.close();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
