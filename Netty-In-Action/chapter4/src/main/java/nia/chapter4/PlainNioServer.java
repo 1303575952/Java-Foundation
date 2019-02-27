@@ -12,9 +12,9 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 4.2 Asynchronous networking without Netty
- *
- * @author lifei
  */
 public class PlainNioServer {
     public void serve(int port) throws IOException {
@@ -33,33 +33,27 @@ public class PlainNioServer {
             while (iterator.hasNext()) {
                 SelectionKey key = iterator.next();
                 iterator.remove();
-
                 try {
                     if (key.isAcceptable()) {
                         ServerSocketChannel server = (ServerSocketChannel) key.channel();
-                        SocketChannel client = server.accept();
-                        client.configureBlocking(false);
-                        client.register(selector, SelectionKey.OP_WRITE | SelectionKey.OP_READ, msg.duplicate());
-                        System.out.println("Accepted connection from " + client);
-
+                        SocketChannel socket = server.accept();
+                        socket.configureBlocking(false);
+                        socket.register(selector, SelectionKey.OP_WRITE | SelectionKey.OP_READ, msg.duplicate());
+                        System.out.println("Accepted connection from " + socket);
                     }
                     if (key.isWritable()) {
-                        SocketChannel client = (SocketChannel) key.channel();
+                        SocketChannel socket = (SocketChannel) key.channel();
                         ByteBuffer buffer = (ByteBuffer) key.attachment();
                         while (buffer.hasRemaining()) {
-                            if (client.write(buffer) == 0) {
+                            if (socket.write(buffer) == 0) {
                                 break;
                             }
                         }
-                        client.close();
+                        socket.close();
                     }
-                } catch (IOException ex) {
-                    key.cancel();
-                    try {
-                        key.channel().close();
-                    } catch (IOException cex) {
-                        cex.printStackTrace();
-                    }
+                } catch (IOException e) {
+                    key.channel();
+                    key.channel().close();
                 }
             }
         }
