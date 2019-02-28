@@ -12,11 +12,11 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 4.5 Writing to a Channel
  * <p>
  * Listing 4.6 Using a Channel from many threads
- *
- * @author lifei
  */
 public class ChannelOperationExamples {
     private static final Channel CHANNEL_FROM_SOMEWHERE = new NioSocketChannel();
