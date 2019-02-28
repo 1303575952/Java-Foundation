@@ -12,13 +12,13 @@ import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 4.4 Asynchronous networking with Netty
- *
- * @author lifei
  */
 public class NettyNioServer {
     public void server(int port) throws Exception {
-        final ByteBuf buf = Unpooled.unreleasableBuffer(Unpooled.copiedBuffer("Hi!\r\n", Charset.forName("UTF-8")));
+        final ByteBuf buf = Unpooled.copiedBuffer("Hi!\r\n", Charset.forName("UTF-8"));
         EventLoopGroup group = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
@@ -28,18 +28,14 @@ public class NettyNioServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline()
-                                    .addLast(new ChannelInboundHandlerAdapter() {
-                                        @Override
-                                        public void channelActive(ChannelHandlerContext ctx) throws Exception {
-                                            ctx.writeAndFlush(buf.duplicate())
-                                                    .addListener(ChannelFutureListener.CLOSE);
-                                        }
-                                    });
+                            ch.pipeline().addLast(new ChannelInboundHandlerAdapter() {
+                                @Override
+                                public void channelActive(ChannelHandlerContext ctx) throws Exception {
+                                    ctx.writeAndFlush(buf.duplicate()).addListener(ChannelFutureListener.CLOSE);
+                                }
+                            });
                         }
                     });
-            ChannelFuture f = b.bind().sync();
-            f.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully().sync();
         }
