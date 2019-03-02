@@ -5,9 +5,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 6.2 Using SimpleChannelInboundHandler
- *
- * @author lifei
  */
 @Sharable
 public class SimpleDiscardHandler extends SimpleChannelInboundHandler<Object> {
