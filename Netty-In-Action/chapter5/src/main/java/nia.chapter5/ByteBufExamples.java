@@ -13,7 +13,7 @@ import java.util.Random;
 import static io.netty.channel.DummyChannelHandlerContext.DUMMY_INSTANCE;
 
 /**
- * @author lifei
+ * @author FELIX
  * <p>
  * Listing 5.1 Backing array
  * <p>
@@ -57,7 +57,7 @@ public class ByteBufExamples {
      * Listing 5.1 Backing array
      */
     public static void heapBuffer() {
-        ByteBuf heapBuf = BYTE_BUF_FROM_SOMEWHERE; //get reference form somewhere
+        ByteBuf heapBuf = BYTE_BUF_FROM_SOMEWHERE; //get reference from somewhere
         if (heapBuf.hasArray()) {
             byte[] array = heapBuf.array();
             int offset = heapBuf.arrayOffset() + heapBuf.readerIndex();
