@@ -7,9 +7,9 @@ import io.netty.channel.ChannelPromise;
 import io.netty.util.ReferenceCountUtil;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 6.4 Discarding and releasing outbound data
- *
- * @author lifei
  */
 @Sharable
 public class DiscardOutboundHandler extends ChannelOutboundHandlerAdapter {
@@ -19,4 +19,3 @@ public class DiscardOutboundHandler extends ChannelOutboundHandlerAdapter {
         promise.setSuccess();
     }
 }
-
