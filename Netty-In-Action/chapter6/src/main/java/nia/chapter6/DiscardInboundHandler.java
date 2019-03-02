@@ -6,9 +6,9 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 6.3 Consuming and releasing an inbound message
- *
- * @author lifei
  */
 @Sharable
 public class DiscardInboundHandler extends ChannelInboundHandlerAdapter {
