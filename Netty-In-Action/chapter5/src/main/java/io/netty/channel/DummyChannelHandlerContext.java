@@ -3,7 +3,7 @@ package io.netty.channel;
 import io.netty.util.concurrent.EventExecutor;
 
 /**
- * @author lifei
+ * @author FELIX
  */
 public class DummyChannelHandlerContext extends AbstractChannelHandlerContext {
     public static ChannelHandlerContext DUMMY_INSTANCE = new DummyChannelHandlerContext(
