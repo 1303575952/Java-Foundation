@@ -4,9 +4,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 6.12 Basic inbound exception handling
- *
- * @author lifei
  */
 public class InboundExceptionHandler extends ChannelInboundHandlerAdapter {
     @Override
