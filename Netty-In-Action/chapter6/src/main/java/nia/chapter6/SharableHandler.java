@@ -5,9 +5,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 6.10 A sharable ChannelHandler
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 @Sharable
 public class SharableHandler extends ChannelInboundHandlerAdapter {
@@ -17,4 +17,3 @@ public class SharableHandler extends ChannelInboundHandlerAdapter {
         ctx.fireChannelRead(msg);
     }
 }
-
