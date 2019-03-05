@@ -3,9 +3,9 @@ package nia.chapter6;
 import io.netty.channel.*;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 6.14 Adding a ChannelFutureListener to a ChannelPromise
- *
- * @author lifei
  */
 public class OutboundExceptionHandler extends ChannelOutboundHandlerAdapter {
     @Override
