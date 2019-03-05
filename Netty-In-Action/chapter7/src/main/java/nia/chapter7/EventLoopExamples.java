@@ -4,9 +4,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 7.1 Executing tasks in an event loop
- *
- * @author lifei
  */
 public class EventLoopExamples {
     /**
