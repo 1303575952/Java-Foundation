@@ -9,6 +9,8 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 7.2 Scheduling a task with a ScheduledExecutorService
  * <p>
  * Listing 7.3 Scheduling a task with EventLoop
@@ -16,8 +18,6 @@ import java.util.concurrent.TimeUnit;
  * Listing 7.4 Scheduling a recurring task with EventLoop
  * <p>
  * Listing 7.5 Canceling a task using ScheduledFuture
- *
- * @author lifei
  */
 public class ScheduleExamples {
     private static final Channel CHANNEL_FROM_SOMEWHERE = new NioSocketChannel();
@@ -28,7 +28,6 @@ public class ScheduleExamples {
     public static void schedule() {
         ScheduledExecutorService executor =
                 Executors.newScheduledThreadPool(10);
-
         ScheduledFuture<?> future = executor.schedule(
                 new Runnable() {
                     @Override
