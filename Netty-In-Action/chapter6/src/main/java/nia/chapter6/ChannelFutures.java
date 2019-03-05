@@ -9,8 +9,8 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 
 /**
- * Created by kerr.
- *
+ * @author FELIX
+ * <p>
  * Listing 6.13 Adding a ChannelFutureListener to a ChannelFuture
  */
 public class ChannelFutures {
@@ -19,8 +19,8 @@ public class ChannelFutures {
 
     /**
      * Listing 6.13 Adding a ChannelFutureListener to a ChannelFuture
-     * */
-    public static void addingChannelFutureListener(){
+     */
+    public static void addingChannelFutureListener() {
         Channel channel = CHANNEL_FROM_SOMEWHERE; // get reference to pipeline;
         ByteBuf someMessage = SOME_MSG_FROM_SOMEWHERE; // get reference to pipeline;
         //...
