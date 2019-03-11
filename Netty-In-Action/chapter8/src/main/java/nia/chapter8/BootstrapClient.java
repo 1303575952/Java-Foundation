@@ -9,10 +9,9 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import java.net.InetSocketAddress;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 8.1 Bootstrapping a client
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
- * @author <a href="mailto:mawolfthal@gmail.com">Marvin Wolfthal</a>
  */
 public class BootstrapClient {
     public static void main(String args[]) {
@@ -22,31 +21,26 @@ public class BootstrapClient {
 
     /**
      * Listing 8.1 Bootstrapping a client
-     * */
+     */
     public void bootstrap() {
         EventLoopGroup group = new NioEventLoopGroup();
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(group)
-            .channel(NioSocketChannel.class)
-            .handler(new SimpleChannelInboundHandler<ByteBuf>() {
-                @Override
-                protected void channelRead0(
-                    ChannelHandlerContext channelHandlerContext,
-                    ByteBuf byteBuf) throws Exception {
-                    System.out.println("Received data");
-                }
+                .channel(NioSocketChannel.class)
+                .handler(new SimpleChannelInboundHandler<ByteBuf>() {
+                    @Override
+                    protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+                        System.out.println("Received data");
+                    }
                 });
-        ChannelFuture future =
-            bootstrap.connect(
-                    new InetSocketAddress("www.manning.com", 80));
+        ChannelFuture future = bootstrap.connect(new InetSocketAddress("www.baidu.com", 80));
         future.addListener(new ChannelFutureListener() {
             @Override
-            public void operationComplete(ChannelFuture channelFuture)
-                throws Exception {
+            public void operationComplete(ChannelFuture channelFuture) throws Exception {
                 if (channelFuture.isSuccess()) {
-                    System.out.println("Connection established");
+                    System.out.println("Connection Established");
                 } else {
-                    System.err.println("Connection attempt failed");
+                    System.out.println("Connection attempt failed");
                     channelFuture.cause().printStackTrace();
                 }
             }
