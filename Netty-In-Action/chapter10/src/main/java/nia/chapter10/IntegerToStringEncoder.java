@@ -6,15 +6,15 @@ import io.netty.handler.codec.MessageToMessageEncoder;
 import java.util.List;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 10.6 Class IntegerToStringEncoder
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class IntegerToStringEncoder
-    extends MessageToMessageEncoder<Integer> {
+        extends MessageToMessageEncoder<Integer> {
     @Override
     public void encode(ChannelHandlerContext ctx, Integer msg,
-        List<Object> out) throws Exception {
+                       List<Object> out) throws Exception {
         out.add(String.valueOf(msg));
     }
 }
