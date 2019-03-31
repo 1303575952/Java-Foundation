@@ -10,10 +10,9 @@ import io.netty.util.concurrent.Future;
 import java.net.InetSocketAddress;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 8.9 Graceful shutdown
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
- * @author <a href="mailto:mawolfthal@gmail.com">Marvin Wolfthal</a>
  */
 public class GracefulShutdown {
     public static void main(String args[]) {
@@ -28,18 +27,18 @@ public class GracefulShutdown {
         EventLoopGroup group = new NioEventLoopGroup();
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(group)
-             .channel(NioSocketChannel.class)
-        //...
-             .handler(
-                new SimpleChannelInboundHandler<ByteBuf>() {
-                    @Override
-                    protected void channelRead0(
-                            ChannelHandlerContext channelHandlerContext,
-                            ByteBuf byteBuf) throws Exception {
-                        System.out.println("Received data");
-                    }
-                }
-             );
+                .channel(NioSocketChannel.class)
+                //...
+                .handler(
+                        new SimpleChannelInboundHandler<ByteBuf>() {
+                            @Override
+                            protected void channelRead0(
+                                    ChannelHandlerContext channelHandlerContext,
+                                    ByteBuf byteBuf) throws Exception {
+                                System.out.println("Received data");
+                            }
+                        }
+                );
         bootstrap.connect(new InetSocketAddress("www.manning.com", 80)).syncUninterruptibly();
         //,,,
         Future<?> future = group.shutdownGracefully();
