@@ -10,20 +10,20 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import java.net.InetSocketAddress;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 8.6 Bootstrapping and using ChannelInitializer
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class BootstrapWithInitializer {
 
     /**
      * Listing 8.6 Bootstrapping and using ChannelInitializer
-     * */
+     */
     public void bootstrap() throws InterruptedException {
         ServerBootstrap bootstrap = new ServerBootstrap();
         bootstrap.group(new NioEventLoopGroup(), new NioEventLoopGroup())
-            .channel(NioServerSocketChannel.class)
-            .childHandler(new ChannelInitializerImpl());
+                .channel(NioServerSocketChannel.class)
+                .childHandler(new ChannelInitializerImpl());
         ChannelFuture future = bootstrap.bind(new InetSocketAddress(8080));
         future.sync();
     }
