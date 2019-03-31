@@ -8,9 +8,9 @@ import io.netty.handler.codec.TooLongFrameException;
 import java.util.List;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 9.5 FrameChunkDecoder
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class FrameChunkDecoder extends ByteToMessageDecoder {
     private final int maxFrameSize;
@@ -21,8 +21,8 @@ public class FrameChunkDecoder extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in,
-        List<Object> out)
-        throws Exception {
+                          List<Object> out)
+            throws Exception {
         int readableBytes = in.readableBytes();
         if (readableBytes > maxFrameSize) {
             // discard the bytes
