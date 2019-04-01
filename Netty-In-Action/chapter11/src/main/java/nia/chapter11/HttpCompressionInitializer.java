@@ -9,9 +9,9 @@ import io.netty.handler.codec.http.HttpContentDecompressor;
 import io.netty.handler.codec.http.HttpServerCodec;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 11.4 Automatically compressing HTTP messages
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class HttpCompressionInitializer extends ChannelInitializer<Channel> {
     private final boolean isClient;
@@ -26,11 +26,11 @@ public class HttpCompressionInitializer extends ChannelInitializer<Channel> {
         if (isClient) {
             pipeline.addLast("codec", new HttpClientCodec());
             pipeline.addLast("decompressor",
-            new HttpContentDecompressor());
+                    new HttpContentDecompressor());
         } else {
             pipeline.addLast("codec", new HttpServerCodec());
             pipeline.addLast("compressor",
-            new HttpContentCompressor());
+                    new HttpContentCompressor());
         }
     }
 }
