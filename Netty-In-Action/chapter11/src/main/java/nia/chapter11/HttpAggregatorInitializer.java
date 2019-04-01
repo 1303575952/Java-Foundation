@@ -8,9 +8,9 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 11.3 Automatically aggregating HTTP message fragments
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 public class HttpAggregatorInitializer extends ChannelInitializer<Channel> {
     private final boolean isClient;
