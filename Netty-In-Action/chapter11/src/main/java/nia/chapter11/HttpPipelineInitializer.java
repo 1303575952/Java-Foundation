@@ -9,9 +9,9 @@ import io.netty.handler.codec.http.HttpResponseDecoder;
 import io.netty.handler.codec.http.HttpResponseEncoder;
 
 /**
+ * @author FELIX
+ * <p>
  * Listing 11.2 Adding support for HTTP
- *
- * @author <a href="mailto:norman.maurer@gmail.com">Norman Maurer</a>
  */
 
 public class HttpPipelineInitializer extends ChannelInitializer<Channel> {
